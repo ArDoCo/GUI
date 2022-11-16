@@ -14,12 +14,16 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
 public class PrimaryController {
+
     @FXML
-    private Text actionTarget;
+    private TextField nameTextField;
     @FXML
     private TextField nlsadPath;
     @FXML
     private TextField modelPath;
+
+    @FXML
+    private Text actionTarget;
 
     @FXML
     protected void openNlsadFileChooser(ActionEvent event) {
@@ -54,6 +58,7 @@ public class PrimaryController {
     protected void runArDoCo(ActionEvent event) {
         var nlsadPathText = nlsadPath.getText();
         var modelPathText = modelPath.getText();
+        var nameText = nameTextField.getText();
 
         if (nlsadPathText.isBlank() || modelPathText.isBlank()) {
             actionTarget.setText("Error!");
@@ -75,7 +80,7 @@ public class PrimaryController {
             modelFiles.add(modelFile);
         }
 
-        actionTarget.setText("Run");
+        actionTarget.setText("Run " + nameText);
     }
 
     private boolean isFileValid(File nlsadFile) {

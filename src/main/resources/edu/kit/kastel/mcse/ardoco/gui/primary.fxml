@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -10,24 +9,33 @@
           xmlns:fx="http://javafx.com/fxml" alignment="top_center" hgap="10" vgap="10">
    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
    <gridLinesVisible>false</gridLinesVisible>
-   <Label text="NLSAD:"
+
+   <Label text="Name:"
           GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+   <TextField fx:id="nameTextField"
+              GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+
+   <Label text="NLSAD:"
+          GridPane.columnIndex="0" GridPane.rowIndex="2"/>
    <TextField fx:id="nlsadPath"
-       GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+       GridPane.columnIndex="1" GridPane.rowIndex="2"/>
    <Button text="..."
            onAction="#openNlsadFileChooser"
-           GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+           GridPane.columnIndex="2" GridPane.rowIndex="2"/>
    <Label text="Model:"
-          GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+          GridPane.columnIndex="3" GridPane.rowIndex="2"/>
    <TextField fx:id="modelPath"
-              GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+              GridPane.columnIndex="4" GridPane.rowIndex="2"/>
    <Button text="..."
            onAction="#openModelFileChooser"
-           GridPane.columnIndex="5" GridPane.rowIndex="1"/>
+           GridPane.columnIndex="5" GridPane.rowIndex="2"/>
    <Button text="Run"
            onAction="#runArDoCo"
-           GridPane.columnIndex="7" GridPane.rowIndex="1"/>
+           GridPane.columnIndex="7" GridPane.rowIndex="2"/>
+   
+   
    <Text fx:id="actionTarget"
          text="Press Run"
-         GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+         GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 </GridPane>
