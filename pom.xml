@@ -10,7 +10,6 @@
 
   <groupId>edu.kit.kastel.mcse.ardoco</groupId>
   <artifactId>gui</artifactId>
-  <version>1.0-SNAPSHOT</version>
   <licenses>
     <license>
       <name>MIT License</name>
