@@ -60,8 +60,8 @@ public class PrimaryController {
         var modelPathText = modelPath.getText();
         var nameText = nameTextField.getText();
 
-        if (nlsadPathText.isBlank() || modelPathText.isBlank()) {
-            actionTarget.setText("Error!");
+        if (nlsadPathText.isBlank() || modelPathText.isBlank() || nameText.isBlank()) {
+            actionTarget.setText("Error! There are empty fields.");
             return;
         }
 
