@@ -8,14 +8,26 @@
     <version>0.6.0</version>
   </parent>
 
-  <groupId>edu.kit.kastel.mcse.ardoco</groupId>
+  <groupId>io.github.ardoco</groupId>
   <artifactId>gui</artifactId>
+  <packaging>jar</packaging>
+  <name>ArDoCo GUI</name>
+
+  <description>The goal of this project is to connect architecture documentation and models while identifying missing
+    or deviating elements (inconsistencies). An element can be any representable item of the model, like a component
+    or a relation. To do so, we first create trace links and then make use of them and other information to identify
+    inconsistencies. ArDoCo is actively developed by researchers of the Modelling for Continuous Software Engineering
+    (MCSE) group of KASTEL - Institute of Information Security and Dependability at the KIT. This work was supported by
+    funding from the topic Engineering Secure Systems of the Helmholtz Association (HGF) and by KASTEL Security Research
+    Labs (46.23.01).</description>
+
   <licenses>
     <license>
       <name>MIT License</name>
       <url>http://www.opensource.org/licenses/mit-license.php</url>
     </license>
   </licenses>
+
   <developers>
     <developer>
       <id>Gram21</id>
@@ -51,6 +63,10 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>io.github.ardoco.core</groupId>
+      <artifactId>pipeline</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
@@ -108,4 +124,20 @@
       </plugin>
     </plugins>
   </build>
+  <repositories>
+    <repository>
+      <id>mavenCentral</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>mavenSnapshot</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
 </project>
