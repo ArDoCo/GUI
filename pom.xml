@@ -1,89 +1,89 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-      <groupId>io.github.ardoco.core</groupId>
-      <artifactId>parent</artifactId>
-      <version>0.6.0</version>
-    </parent>
+  <parent>
+    <groupId>io.github.ardoco.core</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.6.0</version>
+  </parent>
 
-    <groupId>edu.kit.kastel.mcse.ardoco</groupId>
-    <artifactId>gui</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>19</javafx.version>
-        <javafx-maven-plugin.version>0.0.6</javafx-maven-plugin.version>
-    </properties>
-    <licenses>
-      <license>
-        <name>MIT License</name>
-        <url>http://www.opensource.org/licenses/mit-license.php</url>
-      </license>
-    </licenses>
-    <developers>
-      <developer>
-        <id>Gram21</id>
-        <name>Jan Keim</name>
-        <email>jan.keim@kit.edu</email>
-        <url>https://mcse.kastel.kit.edu/staff_Keim_Jan.php</url>
-        <organization>KASTEL</organization>
-        <organizationUrl>https://mcse.kastel.kit.edu/</organizationUrl>
-        <timezone>GMT+1</timezone>
-      </developer>
-    </developers>
-    <scm>
-      <connection>scm:git:git://github.com/ArDoCo/Core.git</connection>
-      <developerConnection>scm:git:ssh://github.com:ArDoCo/GUI.git</developerConnection>
-      <url>http://github.com/ArDoCo/GUI/tree/main</url>
-    </scm>
-    <issueManagement>
-      <system>GitHub Issues</system>
-      <url>https://github.com/ArDoCo/GUI/issues</url>
-    </issueManagement>
+  <groupId>edu.kit.kastel.mcse.ardoco</groupId>
+  <artifactId>gui</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>Gram21</id>
+      <name>Jan Keim</name>
+      <email>jan.keim@kit.edu</email>
+      <url>https://mcse.kastel.kit.edu/staff_Keim_Jan.php</url>
+      <organization>KASTEL</organization>
+      <organizationUrl>https://mcse.kastel.kit.edu/</organizationUrl>
+      <timezone>GMT+1</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/ArDoCo/Core.git</connection>
+    <developerConnection>scm:git:ssh://github.com:ArDoCo/GUI.git</developerConnection>
+    <url>http://github.com/ArDoCo/GUI/tree/main</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/ArDoCo/GUI/issues</url>
+  </issueManagement>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
+    <javafx.version>19</javafx.version>
+    <javafx-maven-plugin.version>0.0.6</javafx-maven-plugin.version>
+  </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-    </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <release>${java.version}</release>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>${javafx-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <!-- Default configuration for running -->
-                        <!-- Usage: mvn clean javafx:run -->
-                        <id>default-cli</id>
-                        <configuration>
-                            <mainClass>edu.kit.kastel.mcse.ardoco.gui.App</mainClass>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <release>${java.version}</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>${javafx-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <!-- Default configuration for running -->
+            <!-- Usage: mvn clean javafx:run -->
+            <id>default-cli</id>
+            <configuration>
+              <mainClass>edu.kit.kastel.mcse.ardoco.gui.App</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

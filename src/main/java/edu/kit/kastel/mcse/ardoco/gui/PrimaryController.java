@@ -1,5 +1,10 @@
+/* Licensed under MIT 2022. */
 package edu.kit.kastel.mcse.ardoco.gui;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -8,18 +13,16 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class PrimaryController {
-    @FXML private Text actionTarget;
-    @FXML private TextField nlsadPath;
-    @FXML private TextField modelPath;
+    @FXML
+    private Text actionTarget;
+    @FXML
+    private TextField nlsadPath;
+    @FXML
+    private TextField modelPath;
 
-
-    @FXML protected void openNlsadFileChooser(ActionEvent event) {
+    @FXML
+    protected void openNlsadFileChooser(ActionEvent event) {
         var textFileChooser = new FileChooser();
         textFileChooser.setTitle("Open NLSAD Text File");
         var file = textFileChooser.showOpenDialog(getStage(event));
@@ -29,7 +32,8 @@ public class PrimaryController {
         nlsadPath.setText(file.getPath());
     }
 
-    @FXML protected void openModelFileChooser(ActionEvent event) {
+    @FXML
+    protected void openModelFileChooser(ActionEvent event) {
         var modelFileChooser = new FileChooser();
         modelFileChooser.setTitle("Open NLSAD Text File");
         var files = modelFileChooser.showOpenMultipleDialog(getStage(event));
@@ -46,7 +50,8 @@ public class PrimaryController {
         return source.getScene().getWindow();
     }
 
-    @FXML protected void runArDoCo(ActionEvent event) {
+    @FXML
+    protected void runArDoCo(ActionEvent event) {
         var nlsadPathText = nlsadPath.getText();
         var modelPathText = modelPath.getText();
 
