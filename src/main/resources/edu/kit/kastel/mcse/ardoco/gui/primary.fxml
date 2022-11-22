@@ -42,11 +42,27 @@
       </items>
    </ComboBox>
 
-   <Button text="Run"
+   <Label text="Add.Configs:"
+          GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+   <TextField fx:id="additionalConfigPath"
+              GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+   <Button text="..."
+           onAction="#openAdditionalConfigFileChooser"
+           GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+
+   <Label text="Output Dir.:"
+          GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+   <TextField fx:id="outputDirPath"
+              GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+   <Button text="..."
+           onAction="#openOutputDirChooser"
+           GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+
+   <Button fx:id= "runButton" text="Run" prefWidth="90.0"
            onAction="#runArDoCo"
            GridPane.columnIndex="5" GridPane.rowIndex="2"/>
    
    <Text fx:id="actionTarget"
-         text="Press Run"
-         GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+         text=""
+         GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 </GridPane>

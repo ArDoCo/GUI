@@ -12,7 +12,6 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-    private static Scene scene;
 
     public static void main(String[] args) {
         launch();
@@ -20,14 +19,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 800, 600);
+        Scene scene = new Scene(loadFXML("primary"), 600, 250);
         stage.setScene(scene);
 
         stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
