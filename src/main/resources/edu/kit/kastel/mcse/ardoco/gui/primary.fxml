@@ -58,7 +58,7 @@
            onAction="#openOutputDirChooser"
            GridPane.columnIndex="2" GridPane.rowIndex="5"/>
 
-   <Button fx:id= "runButton" text="Run" prefWidth="90.0"
+   <Button fx:id="runButton" text="Run" prefWidth="90.0"
            onAction="#runArDoCo"
            GridPane.columnIndex="5" GridPane.rowIndex="2"/>
    
