@@ -4,17 +4,22 @@ package edu.kit.kastel.mcse.ardoco.gui;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.matcher.control.TextMatchers.hasText;
 
+import java.awt.*;
 import java.io.IOException;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
 
+@Disabled
 class AppTest extends ApplicationTest {
+
     @Override
     public void start(Stage stage) throws IOException {
         new App().start(stage);
+
     }
 
     @Test
