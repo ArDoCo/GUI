@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>io.github.ardoco.core</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.7.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>io.github.ardoco</groupId>
+  <artifactId>gui</artifactId>
+  <packaging>jar</packaging>
+  <name>ArDoCo GUI</name>
+
+  <description>The goal of this project is to connect architecture documentation and models while identifying missing
+    or deviating elements (inconsistencies). An element can be any representable item of the model, like a component
+    or a relation. To do so, we first create trace links and then make use of them and other information to identify
+    inconsistencies. ArDoCo is actively developed by researchers of the Modelling for Continuous Software Engineering
+    (MCSE) group of KASTEL - Institute of Information Security and Dependability at the KIT. This work was supported by
+    funding from the topic Engineering Secure Systems of the Helmholtz Association (HGF) and by KASTEL Security Research
+    Labs (46.23.01).</description>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>Gram21</id>
+      <name>Jan Keim</name>
+      <email>jan.keim@kit.edu</email>
+      <url>https://mcse.kastel.kit.edu/staff_Keim_Jan.php</url>
+      <organization>KASTEL</organization>
+      <organizationUrl>https://mcse.kastel.kit.edu/</organizationUrl>
+      <timezone>GMT+1</timezone>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/ArDoCo/GUI.git</connection>
+    <developerConnection>scm:git:ssh://github.com:ArDoCo/GUI.git</developerConnection>
+    <url>http://github.com/ArDoCo/GUI/tree/main</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/ArDoCo/GUI/issues</url>
+  </issueManagement>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <javafx.version>19</javafx.version>
+    <javafx-maven-plugin.version>0.0.6</javafx-maven-plugin.version>
+    <sonar.organization>ardoco</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <sonar.projectKey>ArDoCo_GUI</sonar.projectKey>
+    <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.github.ardoco.core</groupId>
+      <artifactId>pipeline</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-controls</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-fxml</artifactId>
+      <version>${javafx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.testfx</groupId>
+      <artifactId>testfx-core</artifactId>
+      <version>4.0.16-alpha</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testfx</groupId>
+      <artifactId>testfx-junit5</artifactId>
+      <version>4.0.16-alpha</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <repositories>
+    <repository>
+      <id>mavenCentral</id>
+      <url>https://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>mavenSnapshot</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+  </repositories>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <goals>
+              <goal>report</goal>
+            </goals>
+            <phase>package</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>${javafx-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <!-- Default configuration for running -->
+            <!-- Usage: mvn clean javafx:run -->
+            <id>default-cli</id>
+            <configuration>
+              <mainClass>edu.kit.kastel.mcse.ardoco.gui.App</mainClass>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
