@@ -40,7 +40,7 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/ArDoCo/Core.git</connection>
+    <connection>scm:git:git://github.com/ArDoCo/GUI.git</connection>
     <developerConnection>scm:git:ssh://github.com:ArDoCo/GUI.git</developerConnection>
     <url>http://github.com/ArDoCo/GUI/tree/main</url>
   </scm>
@@ -50,10 +50,7 @@
   </issueManagement>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <java.version>17</java.version>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <maven.compiler.release>17</maven.compiler.release>
+
     <javafx.version>19</javafx.version>
     <javafx-maven-plugin.version>0.0.6</javafx-maven-plugin.version>
     <sonar.organization>ardoco</sonar.organization>
@@ -114,14 +111,6 @@
   </repositories>
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
-        <configuration>
-          <release>${java.version}</release>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
