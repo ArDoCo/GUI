@@ -1,9 +1,10 @@
-/* Licensed under MIT 2022. */
+/* Licensed under MIT 2022-2023. */
 package edu.kit.kastel.mcse.ardoco.gui;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +17,9 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
-import edu.kit.kastel.mcse.ardoco.core.pipeline.ArDoCoRunner;
-import edu.kit.kastel.mcse.ardoco.core.pipeline.ArchitectureModelType;
+import edu.kit.kastel.mcse.ardoco.core.api.models.ArchitectureModelType;
+import edu.kit.kastel.mcse.ardoco.core.execution.runner.ArDoCoForInconsistencyDetection;
+import edu.kit.kastel.mcse.ardoco.core.execution.runner.ArDoCoRunner;
 
 public class PrimaryController {
 
@@ -142,7 +144,7 @@ public class PrimaryController {
         runButton.setDisable(true);
         actionTarget.setText("Starting " + nameText);
 
-        runner.runArDoCo();
+        runner.run();
 
         actionTarget.setText("Finished " + nameText);
         runButton.setDisable(false);
@@ -150,15 +152,10 @@ public class PrimaryController {
 
     private ArDoCoRunner createRunner(String name, File nlsad, File model, String archType, File outputFolder, File additionalConfig) {
         var architectureModelType = ArchitectureModelType.valueOf(archType);
-        var builder = new ArDoCoRunner.Builder(name);
-        builder = builder.withInputText(nlsad)
-                .withInputModelArchitecture(model)
-                .withInputArchitectureModelType(architectureModelType)
-                .withOutputDir(outputFolder);
-        if (additionalConfig != null) {
-            builder = builder.withAdditionalConfigs(additionalConfig);
-        }
-        return builder.build();
+        var runner = new ArDoCoForInconsistencyDetection(name);
+        // TODO Load additional configs ..
+        runner.setUp(nlsad, model, architectureModelType, Map.of(), outputFolder);
+        return runner;
     }
 
     private boolean isFileValid(File nlsadFile) {
