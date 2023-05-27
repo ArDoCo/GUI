@@ -18,6 +18,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
 import edu.kit.kastel.mcse.ardoco.core.api.models.ArchitectureModelType;
+import edu.kit.kastel.mcse.ardoco.core.execution.ConfigurationHelper;
 import edu.kit.kastel.mcse.ardoco.core.execution.runner.ArDoCoForInconsistencyDetection;
 import edu.kit.kastel.mcse.ardoco.core.execution.runner.ArDoCoRunner;
 
@@ -153,8 +154,8 @@ public class PrimaryController {
     private ArDoCoRunner createRunner(String name, File nlsad, File model, String archType, File outputFolder, File additionalConfig) {
         var architectureModelType = ArchitectureModelType.valueOf(archType);
         var runner = new ArDoCoForInconsistencyDetection(name);
-        // TODO Load additional configs ..
-        runner.setUp(nlsad, model, architectureModelType, Map.of(), outputFolder);
+        Map<String, String> config = additionalConfig == null ? Map.of() : ConfigurationHelper.loadAdditionalConfigs(additionalConfig);
+        runner.setUp(nlsad, model, architectureModelType, config, outputFolder);
         return runner;
     }
 
