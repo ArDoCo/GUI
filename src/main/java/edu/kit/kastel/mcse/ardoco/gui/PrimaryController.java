@@ -4,7 +4,8 @@ package edu.kit.kastel.mcse.ardoco.gui;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -154,7 +155,7 @@ public class PrimaryController {
     private ArDoCoRunner createRunner(String name, File nlsad, File model, String archType, File outputFolder, File additionalConfig) {
         var architectureModelType = ArchitectureModelType.valueOf(archType);
         var runner = new ArDoCoForInconsistencyDetection(name);
-        Map<String, String> config = additionalConfig == null ? Map.of() : ConfigurationHelper.loadAdditionalConfigs(additionalConfig);
+        SortedMap<String, String> config = additionalConfig == null ? new TreeMap<>() : ConfigurationHelper.loadAdditionalConfigs(additionalConfig);
         runner.setUp(nlsad, model, architectureModelType, config, outputFolder);
         return runner;
     }
